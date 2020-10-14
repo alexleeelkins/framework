@@ -127,4 +127,15 @@ class ApcStore extends TaggableStore
     {
         return $this->prefix;
     }
+
+    /**
+     * Determine if an item exists in the cache.
+     *
+     * @param string $key
+     * @return bool
+     */
+    public function has($key)
+    {
+        return $this->apc->has($key);
+    }
 }

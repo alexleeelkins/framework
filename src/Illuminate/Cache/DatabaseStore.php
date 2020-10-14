@@ -374,4 +374,17 @@ class DatabaseStore implements LockProvider, Store
 
         return unserialize($value);
     }
+
+    /**
+     * Determine if an item exists in the cache.
+     *
+     * @param string $key
+     * @return bool
+     */
+    public function has($key)
+    {
+        $prefixed = $this->prefix.$key;
+
+        return $this->table()->where('key', '=', $prefixed)->exists();
+    }
 }

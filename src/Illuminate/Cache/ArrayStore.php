@@ -215,4 +215,15 @@ class ArrayStore extends TaggableStore implements LockProvider
     {
         return $this->lock($name, 0, $owner);
     }
+
+    /**
+     * Determine if an item exists in the cache.
+     *
+     * @param string $key
+     * @return bool
+     */
+    public function has($key)
+    {
+        return array_key_exists($key, $this->storage);
+    }
 }

@@ -300,4 +300,17 @@ class FileStore implements Store
     {
         return '';
     }
+
+    /**
+     * Determine if an item exists in the cache.
+     *
+     * @param string $key
+     * @return bool
+     */
+    public function has($key)
+    {
+        [$data, $time] = $this->getPayload($key);
+
+        return $data !== null && $time !== null;
+    }
 }

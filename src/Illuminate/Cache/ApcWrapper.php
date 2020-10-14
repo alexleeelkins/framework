@@ -89,4 +89,15 @@ class ApcWrapper
     {
         return $this->apcu ? apcu_clear_cache() : apc_clear_cache('user');
     }
+
+    /**
+     * Determine if an item exists in the cache.
+     *
+     * @param $key
+     * @return bool
+     */
+    public function has($key)
+    {
+        return $this->apcu ? apcu_exists($key) : apc_exists($key);
+    }
 }

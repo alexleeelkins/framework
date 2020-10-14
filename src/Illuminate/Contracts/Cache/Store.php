@@ -12,6 +12,15 @@ interface Store
      */
     public function get($key);
 
+
+    /**
+     * Determine if the cache has a record for the given key.
+     *
+     * @param string $key
+     * @return bool
+     */
+    public function has($key);
+
     /**
      * Retrieve multiple items from the cache by key.
      *
